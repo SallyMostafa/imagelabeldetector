@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form method="POST" action="/edit" enctype="multipart/form-data">
+{% for image in images %}
+    <input id="id" name="id" type="hidden" value="{{image['id']}}">
+<img src="{{ image['url'] }}" style="max-width: 10%">
+<label for="photographer">Photographer: </label>
+<input name="photographer" id="photographer" value="{{image['photographer']}}" required>
+<label for="location">Location: </label>
+<input name="location" id="location" value="{{image['location']}}" required>
+<label for="date">Date: </label>
+<input type="date" name="date" id="date" value="{{image['date']}}" required>
+<label for="label">Label: </label>
+<input name="label" id="label" value="{{image['label']}}" required>
+<input type="file" name="file">
+<input type="submit">
+{% endfor %}
+</form>
+</body>
+</html>
