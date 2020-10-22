@@ -18,19 +18,80 @@
     <input type="file" name="file">
     <input type="submit">
 </form>
-{% for image in images %}
 
-<div>
+<h2>Photo Album</h2>
+
+<div class="row">
+
+  <div class="column" style="background-color:#aaa;">
+    <h2>Animal</h2>
+    {% for image in animals %}
+    <div>
     <a href="{{ image['id'] }}">
-  <img src="{{ image['url'] }}" style="max-width: 30%">
-<!--  <p>{{ image['url'] }}</p>-->
-  <p>{{ image['photographer'] }}</p>
-  <p>{{ image['location'] }}</p>
-  <p>{{ image['date'] }}</p>
-  <p>{{ image['label']  }}</p>
+    <img src="{{ image['url'] }}" style="max-width: 10%">
+    <p>{{ image['photographer'] }}</p>
+    <p>{{ image['location'] }}</p>
+    <p>{{ image['date'] }}</p>
+        <p>{{ image['label']  }}</p>
+    <p>{{ image['category'] }}</p>
     </a>
+    </div>
+    {% endfor %}
   </div>
-{% endfor %}
+
+  <div class="column" style="background-color:#bbb;">
+    <h2>Flower</h2>
+      {% for image in flowers %}
+    <div>
+    <a href="{{ image['id'] }}">
+    <img src="{{ image['url'] }}" style="max-width: 10%">
+    <p>{{ image['photographer'] }}</p>
+    <p>{{ image['location'] }}</p>
+    <p>{{ image['date'] }}</p>
+        <p>{{ image['label']  }}</p>
+    <p>{{ image['category'] }}</p>
+    </a>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <div class="column" style="background-color:#ccc;">
+    <h2>People</h2>
+    {% for image in people %}
+    <div>
+    <a href="{{ image['id'] }}">
+    <img src="{{ image['url'] }}" style="max-width: 10%">
+    <p>{{ image['photographer'] }}</p>
+    <p>{{ image['location'] }}</p>
+    <p>{{ image['date'] }}</p>
+        <p>{{ image['label']  }}</p>
+    <p>{{ image['category'] }}</p>
+    </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="column" style="background-color:#ddd;">
+    <h2>Other</h2>
+    {% for image in others %}
+    <div>
+    <a href="{{ image['id'] }}">
+    <img src="{{ image['url'] }}" style="max-width: 10%">
+    <p>{{ image['photographer'] }}</p>
+    <p>{{ image['location'] }}</p>
+    <p>{{ image['date'] }}</p>
+        <p>{{ image['label']  }}</p>
+    <p>{{ image['category'] }}</p>
+    </a>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+
+
 
 
 </body>
