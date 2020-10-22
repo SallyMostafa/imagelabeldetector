@@ -8,18 +8,29 @@
 <body>
 
 <form method="POST" action="/upload" enctype="multipart/form-data">
+    <label for="photographer">Photographer: </label>
+    <input name="photographer" id="photographer" required>
+    <label for="location">Location: </label>
+    <input name="location" id="location" required>
+    <label for="date">Date: </label>
+    <input type="date" id="date" name="date" required>
+
     <input type="file" name="file">
     <input type="submit">
 </form>
 {% for image in images %}
 
+<div>
+    <a href="{{ image['id'] }}">
   <img src="{{ image['url'] }}" style="max-width: 30%">
-  <p>{{ image['url'] }}</p>
+<!--  <p>{{ image['url'] }}</p>-->
   <p>{{ image['photographer'] }}</p>
   <p>{{ image['location'] }}</p>
   <p>{{ image['date'] }}</p>
+  <p>{{ image['label']  }}</p>
+    </a>
+  </div>
 {% endfor %}
-
 
 
 </body>
