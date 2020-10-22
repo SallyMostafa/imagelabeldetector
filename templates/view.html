@@ -5,8 +5,9 @@
     <title></title>
 </head>
 <body>
-<form method="POST" action="/edit" enctype="multipart/form-data">
+
 {% for image in images %}
+<form method="POST" action="/edit" enctype="multipart/form-data">
     <input id="id" name="id" type="hidden" value="{{image['id']}}">
 <img src="{{ image['url'] }}" style="max-width: 10%">
 <label for="photographer">Photographer: </label>
@@ -17,9 +18,16 @@
 <input type="date" name="date" id="date" value="{{image['date']}}" required>
 <label for="label">Label: </label>
 <input name="label" id="label" value="{{image['label']}}" required>
+    <label for="category">category: </label>
+<input name="category" id="category" value="{{image['category']}}" required>
 <input type="file" name="file">
 <input type="submit">
-{% endfor %}
 </form>
+<form method="POST" action="/delete" enctype="multipart/form-data">
+    <input id="delete_id" name="delete_id" type="hidden" value="{{image['id']}}">
+    <input type="submit" value="delete"></input>
+</form>
+{% endfor %}
+
 </body>
 </html>
