@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Images</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit">
+</form>
+{% for image in images %}
+
+  <img src="{{ image['url'] }}" style="max-width: 30%">
+  <p>{{ image['url'] }}</p>
+  <p>{{ image['photographer'] }}</p>
+  <p>{{ image['location'] }}</p>
+  <p>{{ image['date'] }}</p>
+{% endfor %}
+
+
+
+</body>
+</html>
